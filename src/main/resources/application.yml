@@ -1,0 +1,30 @@
+server:
+  port: 8104
+spring:
+  application:
+    name: ms-bootcoin-customer-service
+  #config:
+  # import: optional:configserver:http://localhost:8888
+  data: 
+    mongodb:
+     host: localhost
+     port: 27017
+     database: Bank
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+        group-id: myGroup                                          
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+
+kafka:
+  topic:
+    bank:
+      debit-card-associated-account:
+        create:
+          name: bank-debit-card-associated-account-create
